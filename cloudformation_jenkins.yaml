@@ -339,7 +339,7 @@ Resources:
               mode: '000700'
               owner: root
               group: root
-            # Configurar jenkins restore
+            # Configurar jenkins restore (backup para desastres)
             "/usr/local/bin/jenkins-restore":
               content:
                 !Join
@@ -349,7 +349,7 @@ Resources:
                   - 'USAGE="Usage: $0 S3_TARGET JENKINS_HOME\n'
                   - "\\n"
                   - Example:\n
-                  - "$0 s3://mybucket/jenkins/jenkins-201405011901.tar.gz /var/lib/jenkins\\n"
+                  - "$0 s3://mybucket/jenkins/jenkins-date.tar.gz /var/lib/jenkins\\n"
                   - "\\n"
                   - If S3_TARGET is a directory, restore from the newest file. Make
                     sure to include the trailing slash:\n
@@ -398,7 +398,7 @@ Resources:
                   - 'USAGE="Usage: $0 JENKINS_HOME S3_TARGET\n'
                   - "\\n"
                   - Examples:\n
-                  - $0 /var/lib/jenkins s3://mybucket/jenkins/jenkins-201405011901.tar.gz"
+                  - $0 /var/lib/jenkins s3://mybucket/jenkins/jenkins-date.tar.gz"
                   - ''
                   - JENKINS_HOME=$1
                   - S3_TARGET=$2

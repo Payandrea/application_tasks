@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - name: Create and Provision EC2
+      cloudformation:
+        stack_name: "Ansible plus Cloudformation equals Jenkins"
+        state: present
+        region: us-east-1 #Utilice east pero se puede usar cualquier otra
+        disable_rollback: true
+        template_url: https://s3.amazon.com/... #Link al cloudformation script guardado en s3
+        #template_parameters:
+          #InstanceType: t2.micro
+          #Image: ami-1234567
